@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: pequenos-encantos-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pequenos_encantos
+    username: pequenos
+    password: pequenos123
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
