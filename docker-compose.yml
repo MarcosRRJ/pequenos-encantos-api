@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pequenos-encantos-postgres
+    environment:
+      POSTGRES_DB: pequenos_encantos
+      POSTGRES_USER: pequenos
+      POSTGRES_PASSWORD: pequenos123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pequenos_encantos_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pequenos -d pequenos_encantos"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pequenos_encantos_postgres_data:
